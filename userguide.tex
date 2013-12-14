@@ -8,19 +8,21 @@
 \thispagestyle{empty}
 
 \begin{center}
-    \Huge\textbf{Ultimaker User Guide}\\
-    \large\textit{Institute of Making}
+    \hspace*{-2.5cm}\Huge\textbf{Ultimaker User Guide}\\
+    \hspace*{-7.cm}\Large\textit{Institute of Making}
 \end{center}
 
 
 
-\vspace*{0.7cm}
+\vspace*{0.5cm}
 
-\begin{wrapfigure}[8]{r}{5.6cm}
-{\vspace*{-2cm} \includegraphics[width=5.5cm]{ultimaker}}
+\begin{wrapfigure}[8]{r}{5.5cm}
+\begin{center}
+{\vspace*{-1.5cm} \includegraphics[width=4.5cm]{ultimaker}}
+\end{center}
 \end{wrapfigure}
 
-\noindent The Ultimaker is a great machine that is capable of fast, accurate prints. It is best suited to printing PLA. If you want a part that is strong(er), needs finishing, or has to
+\noindent The Ultimaker is a great machine that is capable of fast, accurate prints. It is best suited to printing PLA because it does not have a heated bed. If you want a part that is strong(er), needs finishing, or has to
 survive temperatures above $50 \,^{\circ}$C, you may be better printing on one of the MakerBot 2Xs in ABS. However, this machine will produce stiff, dimensionally accurate 
 parts in PLA that will not warp while printing. Because it prints in PLA it should also be better at bridging and overhangs (all of this applies to the MakerBot 2 as well).
 
@@ -37,7 +39,7 @@ parts in PLA that will not warp while printing. Because it prints in PLA it shou
   
 \end{itemize}
 
-\section*{Calibration}
+\section*{Tuning}
 The Ultimaker is very `tweakable.' Some tweaks are semi-permanent, so unless you know what you are doing it is best to avoid anything in
 the \textbf{Main $\rightarrow$ Motion} part of the menu.
 
@@ -58,7 +60,7 @@ You should not need to change this if the filament diameter is set up correctly 
 
 \vspace*{2mm}
 \noindent \textbf{Nozzle} - This is the temperature of the hot end. If your print seems `droopy' you could try lowering it. A higher temperature 
-also makes it easier for the first layer to adhere. Please do not go lower than $180\,^{\circ}$C or higher than $240\,^{\circ}$C.
+also makes it easier for the first layer to adhere. Please do not go lower than $180\,^{\circ}$C or higher than $250\,^{\circ}$C ($230\,^{\circ}$C is a sensible value).
 
 \vspace*{2mm}
 \noindent \textbf{Fan Speed} - `Droopiness' can also be cured by increasing the fan speed. This is especially useful for small details, overhangs and bridges. Cura
@@ -82,13 +84,15 @@ The layer of tape you put down needs to be even and flat.
 \vspace*{2mm}
 \noindent \textbf{Nozzle Unblocking} - If the printer stops extruding plastic but seems to be continuing with the print, it is likely that the nozzle is blocked. Generally at this point you will need to
 stop the print, unblock the nozzle, and restart the print from scratch. After stopping the print you can move the print head around
-manually via \textbf{Main $\rightarrow$ Prepare $\rightarrow$ Move Axis $\rightarrow$ 1mm $\rightarrow$ \textit{axis}}. This inlcudes retracting and extruding filament. Most blockages
-can be solved by retracting a few mm of filament and then re-attempting to extrude. 
+manually via \textbf{Main $\rightarrow$ Prepare $\rightarrow$ Move Axis $\rightarrow$ 1mm $\rightarrow$ \textit{axis}}. This inlcudes retracting and extruding filament. If you only want to move the print head you can disable the 
+motors (\textbf{Main $\rightarrow$ Prepare $\rightarrow$ Disable steppers}) and move it by hand. Most blockages
+can be solved by retracting a few mm of filament and then re-attempting to extrude.
 
 \vspace*{2mm}
 \noindent \textbf{Bed Levelling} - Look carefully at the first layer of your print. If the line of plastic being layed down seems wider in some places than others, or seems altogether too `squashed out' or too thin,
-then it is likely you need to adjust the level of the print bed. This can be done by moving the nozzle to each corner (\textbf{Main $\rightarrow$ Prepare $\rightarrow$ Move Axis $\rightarrow$ 1mm $\rightarrow$ \textit{axis}})
-and adjusting the screw in that corner until you can just fit a piece of copier paper between the nozzle and the bed.
+then it is likely you need to adjust the level of the print bed. This can be done by moving the nozzle around the bed (\textbf{Main $\rightarrow$ Prepare $\rightarrow$ Move Axis $\rightarrow$ 1mm $\rightarrow$ \textit{axis}})
+and adjusting the screws until you can just fit a piece of copier paper between the nozzle and the bed at any point. The most efficient way to do this is to start by homing the printer (\textbf{Main $\rightarrow$ Prepare $\rightarrow$ Auto Home}) and loosening the back right screw. Now place the nozzle next to the front left screw and adjust it until a piece of paper is lightly gripped by the nozzle. Now move the nozzle to the
+front right screw and adjust, then move it to the back left screw and adjust there. Now tighten the back right screw until it makes contact with the bed.
 
 
 
@@ -112,9 +116,9 @@ or the extruder gear.
 \end{center}
 
 \vspace*{2mm}
-\noindent \textbf{Movement} - These values affect the movement of the print head and extruder gear. The motors in the Ultimaker are quite cabable of damaging the machine, so some limits are placed on movements
-by the controller within the printer. This includes limiting the acceleration of the print head, which reduces the force the motors must exert through the gears and belts of the machine. Similarly, 
-jerk (rate of change of acceleration) is also controlled. 
+\noindent \textbf{Movement} - These values affect the movement of the print head and extruder gear. The motors in the Ultimaker can easily damage the machine, so some limits are placed on movements
+by the controller within the printer. This includes limiting instantaneous changes in velocity (jerk) and applying acceleration when velocity changes above this value are required (this is why it is hard to 
+accurately estimate the time required for a print).
 
 \begin{center}
 \begin{tabular}{ l c r }
